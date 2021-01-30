@@ -1,0 +1,42 @@
+package com.example.demo.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.example.demo.service.*;
+
+
+@Controller
+public class MainController {
+	
+	@Autowired
+	private UserService userService;
+	
+	@Autowired
+	private EmployeeService employeeService;
+	
+	@GetMapping(value = "/")
+	public /*String*/ ModelAndView getHomePage() {
+		//model.addAttribute("users", userService.getAllUser());
+		ModelAndView model = new ModelAndView();
+		model.addObject("users", userService.getAllUser());
+		model.setViewName("index");
+		//return "index";
+		return model;
+	}
+	
+	@GetMapping(value="/employees")
+	public ModelAndView getEmployees() {
+		ModelAndView model = new ModelAndView();
+		model.addObject("employees", employeeService.getAllEmployee());
+		model.setViewName("employee");
+		return model;
+	}
+	
+	
+}

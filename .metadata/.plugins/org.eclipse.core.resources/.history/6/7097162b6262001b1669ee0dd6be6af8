@@ -1,0 +1,16 @@
+package com.example.demo.model;
+
+public class Employee {
+	private String first_name,last_name;
+	private int role;
+	
+	public Employee() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Employee(String first_name,String last_name,int role) {
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.role = role;
+	}
+}

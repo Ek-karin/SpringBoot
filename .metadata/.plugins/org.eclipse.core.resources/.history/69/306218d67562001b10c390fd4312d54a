@@ -1,0 +1,4 @@
+<div class="hello">
+	<p>Hello</p>
+	<c:out value='${user.id}' />
+</div>
